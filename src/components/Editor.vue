@@ -1,17 +1,17 @@
 <script setup>
 import { useUserStore } from "@/stores/use-user-store";
-const { getSelectedUser } = useUserStore();
+const store = useUserStore();
 </script>
 
 <template>
-  <div v-if="getSelectedUser() !== undefined">
+  <div>
     <form>
       <label>Id:</label><br />
-      <input v-model="getSelectedUser().id" /><br />
+      <input v-model="store.getSelectedUser.id" /><br />
       <label>Name:</label><br />
-      <input v-model="getSelectedUser().name" /><br />
+      <input v-model="store.getSelectedUser.name" /><br />
       <label>Age:</label><br />
-      <input v-model="getSelectedUser().age" />
+      <input v-model="store.getSelectedUser.age" />
     </form>
   </div>
 </template>

@@ -31,10 +31,16 @@ export const useUserStore = defineStore("users", {
       ],
     };
   },
-  actions: {
+  getters: {
     getSelectedUser() {
-      return this.users.find((user) => user.isSelected);
+      const isFind = this.users.find((user) => user.isSelected);
+      if (typeof isFind === "undefined") {
+        return {};
+      }
+      return isFind;
     },
+  },
+  actions: {
     setSelectedUser(id) {
       this.users.map((user) => {
         if (user.id === id) {
